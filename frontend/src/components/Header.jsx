@@ -1,14 +1,21 @@
 import { Navbar, Nav, Container } from 'react-bootstrap'
 //import { FaShoppingCart ,FaUser} from 'react-icons/fa'
+import { LinkContainer } from 'react-router-bootstrap'
 
 const Header = () => {
   return (
     <Navbar bg='dark' variant='dark'>
         <Container>
-            <Navbar.Brand href='/'>Proshop!</Navbar.Brand>
+            <LinkContainer to='/'>
+              <Navbar.Brand >Proshop!</Navbar.Brand>
+            </LinkContainer>
             <Nav className='ms-auto'>
-                <Nav.Link href='/cart'>cart</Nav.Link>
-                <Nav.Link href='/login'>log in</Nav.Link>
+              <LinkContainer to='/cart'>
+                <Nav.Link >cart</Nav.Link>
+              </LinkContainer>
+              <LinkContainer to='/login'>
+                <Nav.Link >log in</Nav.Link>
+              </LinkContainer>
             </Nav>
         </Container> 
     </Navbar>
