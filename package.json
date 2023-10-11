@@ -1,0 +1,23 @@
+{
+  "name": "proshop",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PieMenard/proshop.git"
+  },
+  "author": "Gustavo Pinedo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PieMenard/proshop/issues"
+  },
+  "homepage": "https://github.com/PieMenard/proshop#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
