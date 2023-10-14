@@ -8,13 +8,21 @@ import {
   Image,
   ListGroupItem,
 } from "react-bootstrap";
-import products from "../products";
 import Rating from "../components/Rating";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const ProductPage = () => {
+  const [product, setProduct] = useState([]);
   const { id: productId } = useParams();
 
-  const product = products.find((p) => p._id === productId);
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const {data} = await axios.get(`/api/products/${productId}`);
+      setProduct(data);
+    }
+    fetchProduct();
+  }, [productId]);
 
   return (
     <>
@@ -54,16 +62,20 @@ const ProductPage = () => {
                 <Row>
                   <Col>Status:</Col>
                   <Col>
-                    <strong>{product.countInStock===0?'Out Of Stock':'In Stock'}</strong>
+                    <strong>
+                      {product.countInStock === 0 ? "Out Of Stock" : "In Stock"}
+                    </strong>
                   </Col>
                 </Row>
               </ListGroupItem>
               <ListGroupItem>
-                <Button 
-                    className="btn-block"
-                    type="button"
-                    disabled={product.countInStock===0}
-                >Add To Cart</Button>
+                <Button
+                  className="btn-block"
+                  type="button"
+                  disabled={product.countInStock === 0}
+                >
+                  Add To Cart
+                </Button>
               </ListGroupItem>
             </ListGroup>
           </Card>
