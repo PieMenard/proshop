@@ -16,14 +16,14 @@ const ProductPage = () => {
   const [product, setProduct] = useState([]);
   const { id: productId } = useParams();
 
-  useEffect(() => {
+  useEffect(()=>{
     const fetchProduct = async () => {
-      const {data} = await axios.get(`/api/products/${productId}`);
-      setProduct(data);
+      const {data} = await axios.get(`/api/products/${productId}`)
+      setProduct(data)
     }
-    fetchProduct();
-  }, [productId]);
-
+  fetchProduct();
+  },[productId])
+ 
   return (
     <>
       <Link className="btn btn-light my-3" to="/">

@@ -15,7 +15,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App/>}>
       <Route path='/' element={<HomePage/>}/>
-      <Route path='/product/:id' element={<ProductPage/>}/>
+      <Route path='/api/products/:id' element={<ProductPage/>}/>
     </Route>
   )
 )
